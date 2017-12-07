@@ -3,6 +3,7 @@ extends KinematicBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+export var health = 1
 signal receive_damage
 
 func _ready():
@@ -10,4 +11,6 @@ func _ready():
 	pass
 
 func _on_receive_damage():
-	queue_free()
+	health -= 1
+	if (health == 0):
+		queue_free()
